@@ -1,5 +1,4 @@
-Kubernetes
-KUBERNETES
+# KUBERNETES
 kubectl proxy --v=4 --address=0.0.0.0 --accept-hosts='^.*' -p port
  
 10.95.123.29:8000/api/v1/namespaces/devenvcase-management-v2/services/casemgmtservice/proxy/case-mgmt/v2/debugging
@@ -7,7 +6,7 @@ kubectl proxy --v=4 --address=0.0.0.0 --accept-hosts='^.*' -p port
 kubectl get secret keyname -o yaml  : displays the output in the form of yaml format.
 Kubernetes uses liveness probes to know when to restart a container. Kubernetes uses readiness probes to decide when the container is available for accepting traffic.
  
-Kinds of controllers : 5
+## Kinds of controllers : 5
  
 1) replica sets - ensure that a specified number of replicas for a pod are running at alltimes
 2) Service - helps pods to communicate with one another and to allow the traffic from and to the pods also does loadbalancing
@@ -44,7 +43,8 @@ kubectl scale statefulsets arangodb-arangodb --replicas=0 -n coppesteksarangodb
 To delete evicted pods
 kubectl get pod  | grep Evicted | awk '{print $1}' | xargs kubectl delete pod -n namespace
  
-COMMANDS:
+## COMMANDS:
+```sh
 kubectl get pods redis-bootstrap -n redis-cluster -o jsonpath='{.spec.containers[*].name}*  #lists all the containers in a multicontainer POD
 kubectl exec -it podname -c containername bash or sh
 kubectl -n policy-demo delete networkpolicy access-nginx
@@ -91,4 +91,4 @@ kubectl edit cronjobs/name   => change suspend to true
  
 deamon sets: makes sure that all nodes run a copy of a specific  pod
 Kops is a very popular way to deploy kubernetes to amazon and looks similar to the way kubectl operates.
- 
+```
